@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'search',
-    'algolia',
-    'algoliasearch_django'
 ]
 
 MIDDLEWARE = [
@@ -143,14 +141,9 @@ REST_FRAMEWORK = {
 	]
 }
 
-ALGOLIA = {
-    'APPLICATION_ID': 'CEUAHAY9KZ',
-    'API_KEY': 'de7b823ad44e92511f85dd022610a53f'
-}
 
 
-CORS_ORIGIN_ALLOW_ALL = True
-ALLOWED_HOSTS = ['*']
+
 FILE_UPLOAD_PERMISSIONS = 0o640
 
 # Default primary key field type
@@ -158,3 +151,13 @@ FILE_UPLOAD_PERMISSIONS = 0o640
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS")
+
+# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST =os.environ.get("DJANGO_CORS_ORIGIN_WHITELIST")

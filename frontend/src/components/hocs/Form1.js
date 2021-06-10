@@ -139,10 +139,12 @@ export default class Form extends Component {
     const query = event.currentTarget.value || value
 
     const fetchResponse = async () => {
-      console.log(`${process.env.API_URL}api/search/website/?search=${query}`)
+      console.log(
+        `${process.env.REACT_APP_HOST_IP_ADDRESS}api/search/website/?search=${query}`
+      )
       try {
         const res = await axios.get(
-          `${process.env.API_URL}api/search/website/?search=${query}`
+          `${process.env.REACT_APP_HOST_IP_ADDRESS}api/search/website/?search=${query}`
         )
         console.log('this is the results', res.data)
         const response = res.data
